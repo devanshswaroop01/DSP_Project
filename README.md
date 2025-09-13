@@ -9,7 +9,6 @@ A mini-project for **Digital Signal Processing & Modelling (DSPM)** showcasing s
 * 📈 Frequency Analysis (DFT & FFT)
 * 🔵 Z-Plane & Filter Response plots
 * 🎯 Classification & Playback (extension)
-
 🔗 Workflow
 Record → Filter → FFT/DFT → Z-Plane → Classify → Playback
 
@@ -23,12 +22,8 @@ DSPM-Signal-Analyzer/
 
 
 ## ⚡ Quick Start
-
-```bash
 git clone https://github.com/your-username/DSPM-Signal-Analyzer.git
 cd DSPM-Signal-Analyzer
-```
-
 * Run with **MATLAB**: `main.m`
 * Run with **Python**: `python main.py`
 * Outputs are saved in `/results/`
