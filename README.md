@@ -1,5 +1,4 @@
-# DSP_Project
-Project Based on SNS and DSP Course
+# DSP_Project : Project Based on SNS and DSP Course
 🎧 DSPM Signal Analyzer
 A mini-project for **Digital Signal Processing & Modelling (DSPM)** showcasing signal acquisition, FIR filtering, frequency-domain analysis, and visualization.
 
