@@ -31,21 +31,29 @@ function SignalAnalyzerOnline
 
     % --- Global Data ---
     Fs = 8000;      % Sampling rate
-    Duration = 3;   % Record duration
-    x = [];
-    filteredSignal = [];
-    filterCoeffs = [];
+    Duration = 3;   % Record duration (seconds)
+    x = [];         % Recorded signal
+    filteredSignal = []; % Filtered signal
+    filterCoeffs = [];   % FIR filter coefficients
 
     % ================= Callback Functions =================
     function recordSignal(~,~)
+        % --- Record audio from microphone ---
         rec = audiorecorder(Fs, 16, 1);
         recordblocking(rec, Duration);
         x = getaudiodata(rec)'; % row vector
         t = (0:length(x)-1)/Fs;
+
+        % --- Plot the recorded signal ---
         plot(ax1, t, x);
         xlabel(ax1,'Time (s)'); ylabel(ax1,'Amplitude');
         grid(ax1,'on');
         title(ax1,'Original Audio Signal');
+
+        % --- SAVE RECORDED AUDIO ---
+        % Pointer 1: Save the raw recorded signal to a .wav file
+        audiowrite('recorded_signal.wav', x, Fs);
+        disp('✅ Recorded signal saved as recorded_signal.wav');
     end
 
     function analyzeSignal(~,~)
@@ -54,18 +62,25 @@ function SignalAnalyzerOnline
             return;
         end
 
-        % Step 1: FIR Filter
+        % Step 1: FIR Filter design
         N = 50; fc = 1000;
         normFc = fc/(Fs/2);
         h = fir1(N, normFc, hamming(N+1));
         filterCoeffs = h;
 
-        % Step 2: Convolution
+        % Step 2: Apply convolution (filtering)
         filteredSignal = manualConvolution(x,h);
         t = (0:length(filteredSignal)-1)/Fs;
+
+        % Plot the filtered signal
         plot(ax2,t(1:length(x)),filteredSignal(1:length(x)));
         xlabel(ax2,'Time (s)'); ylabel(ax2,'Amplitude');
         title(ax2,'Filtered Signal'); grid(ax2,'on');
+
+        % --- SAVE FILTERED AUDIO ---
+        % Pointer 2: Save the filtered signal to a .wav file
+        audiowrite('filtered_signal.wav', filteredSignal, Fs);
+        disp('✅ Filtered signal saved as filtered_signal.wav');
 
         % Step 3: Manual DFT
         dftInput = filteredSignal(1:min(512,end));
@@ -85,7 +100,7 @@ function SignalAnalyzerOnline
         xlabel(ax4,'Frequency (Hz)'); ylabel(ax4,'|X[k]|');
         title(ax4,'Recursive FFT'); grid(ax4,'on');
 
-        % Step 5: Z-Plane
+        % Step 5: Z-Plane plot of FIR filter
         z = roots(h);
         cla(ax5); hold(ax5,'on');
         theta = linspace(0,2*pi,300);
@@ -115,6 +130,7 @@ function SignalAnalyzerOnline
     end
 
     function playAudio(~,~)
+        % --- Play the filtered audio signal ---
         if isempty(filteredSignal)
             warndlg('No filtered audio found. Analyze first.','Error');
             return;
@@ -123,6 +139,7 @@ function SignalAnalyzerOnline
     end
 
     % ================= Utility Functions =================
+    % --- Manual convolution of input x with filter h ---
     function y = manualConvolution(x,h)
         Nx = length(x); Nh = length(h);
         y = zeros(1,Nx+Nh-1);
@@ -135,6 +152,7 @@ function SignalAnalyzerOnline
         end
     end
 
+    % --- Manual DFT implementation ---
     function [mag,phase,f] = manualDFT(x,Fs)
         N = length(x);
         X = zeros(1,N);
@@ -148,6 +166,7 @@ function SignalAnalyzerOnline
         f = (0:N/2-1)*(Fs/N);
     end
 
+    % --- Recursive FFT implementation ---
     function X = recursiveFFT(x)
         N = length(x);
         if N==1
