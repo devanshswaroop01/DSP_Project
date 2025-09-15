@@ -8,6 +8,7 @@ A mini-project for **Digital Signal Processing & Modelling (DSPM)** showcasing s
 * 📈 Frequency Analysis (DFT & FFT)
 * 🔵 Z-Plane & Filter Response plots
 * 🎯 Classification & Playback (extension)
+
 🔗 Workflow
 Record → Filter → FFT/DFT → Z-Plane → Classify → Playback
 
