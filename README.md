@@ -41,14 +41,18 @@ cd DSPM-Signal-Analyzer
 * Run with **Python**: `python main.py`
 * Outputs are saved in `/results/`
 
+
 📊 Sample Outputs
 * Time-domain waveform
 * Filtered signal
 * FFT spectrum
 * Z-plane response
 
+
 📑 Documentation
 📄 [Full Project Report](./docs/DSP_Project_Report.pdf)
+
+
 👨‍💻 Author
 Devansh Swaroop
 Mini Project • DSPM • March 2024
