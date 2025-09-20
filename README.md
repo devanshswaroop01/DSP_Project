@@ -35,7 +35,7 @@ DSPM-Signal-Analyzer/
 
 
  ⚡ Quick Start
-git clone https://github.com/your-username/DSPM-Signal-Analyzer.git
+git clone https://github.com/devanshswaroop01/DSPM-Signal-Analyzer.git
 cd DSPM-Signal-Analyzer
 * Run with **MATLAB**: `main.m`
 * Run with **Python**: `python main.py`
