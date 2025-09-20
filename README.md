@@ -13,7 +13,7 @@ A mini-project for **Digital Signal Processing & Modelling (DSPM)** showcasing s
 Record → Filter → FFT/DFT → Z-Plane → Classify → Playback
 
 📂 Repo Structure
-
+```bash
 DSPM-Signal-Analyzer/
 ├── src/                        # Source code
 │   └── Signal_Analysis_Tool.m
