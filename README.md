@@ -50,7 +50,7 @@ cd DSPM-Signal-Analyzer
 
 
 📑 Documentation
-📄 [Full Project Report](./docs/DSP_Project_Report.pdf)
+📄 [Full Project Report](./DSPM-Signal-Analyzer/docs/DSP_Project_Report.pdf)
 
 
 👨‍💻 Author
