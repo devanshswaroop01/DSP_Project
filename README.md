@@ -13,15 +13,28 @@ A mini-project for **Digital Signal Processing & Modelling (DSPM)** showcasing s
 Record → Filter → FFT/DFT → Z-Plane → Classify → Playback
 
 📂 Repo Structure
+
 DSPM-Signal-Analyzer/
-├── src/        # Source code
-├── docs/       # Report, diagrams
-├── results/    # Plots & screenshots
-├── README.md   # Project overview
-└── LICENSE
+├── src/                        # Source code
+│   └── Signal_Analysis_Tool.m
+│
+├── docs/                       # Documentation (reports, diagrams)
+│   └── DSP_Project_Report.pdf
+│
+├── results/                    # Outputs: plots & audio
+│   ├── plots/                  # Image results
+│   │   ├── Signal_Analysis_Tool.png
+│   │   └── Signal_Analysis_Tool_b.png
+│   │
+│   ├── audio/                  # Audio results
+│   │   ├── recorded_signal.wav
+│   │   └── filtered_signal.wav
+│
+├── README.md                   # Project overview
 
 
-## ⚡ Quick Start
+
+ ⚡ Quick Start
 git clone https://github.com/your-username/DSPM-Signal-Analyzer.git
 cd DSPM-Signal-Analyzer
 * Run with **MATLAB**: `main.m`
@@ -38,9 +51,9 @@ cd DSPM-Signal-Analyzer
 
 
 📑 Documentation
-📄 [Full Project Report](docs/report.pdf)
+📄 [Full Project Report](docs/DSP_Project_Report.pdf)
 
-## 👨‍💻 Author
+👨‍💻 Author
 Devansh Swaroop
 Mini Project • DSPM • March 2024
 
